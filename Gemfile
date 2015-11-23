@@ -1,5 +1,5 @@
+ruby '2.2.3'
 source 'https://rubygems.org'
-
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -9,10 +9,21 @@ gem 'pg', '~> 0.15'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.10.0.rc3'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+# for using "has_secure_password"
+gem 'bcrypt', '~> 3.1.7'
+
+# pagination
+gem 'kaminari'
+
+gem 'rack-cors', :require => 'rack/cors'
+
+# for importing movies from IMDB
+gem 'imdb', '~> 0.8'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
