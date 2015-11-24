@@ -40,8 +40,8 @@ class ApplicationController < ActionController::Base
 
   def paginate(resource)
     resource = resource.page(params[:page] || 1)
-    if params[:per_page]
-      resource = resource.per_page(params[:per_page])
+    if params[:page]
+      resource = resource.per(params[:per])
     end
 
     return resource
@@ -51,9 +51,8 @@ class ApplicationController < ActionController::Base
     {
       current_page: object.current_page,
       next_page: object.next_page,
-      prev_page: object.previous_page,
       total_pages: object.total_pages,
-      total_count: object.total_entries
+      total_count: object.total_count
     }
   end
 
