@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
   def paginate(resource)
     resource = resource.page(params[:page] || 1)
     if params[:page]
-      resource = resource.per(params[:per])
+      resource = resource.per(params[:per_page])
     end
 
     return resource
@@ -49,8 +49,9 @@ class ApplicationController < ActionController::Base
 
   def meta_attributes(object)
     {
+      prev_page: object.try(:prev_page),
       current_page: object.current_page,
-      next_page: object.next_page,
+      next_page: object.try(:next_page),
       total_pages: object.total_pages,
       total_count: object.total_count
     }
