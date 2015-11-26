@@ -1,5 +1,5 @@
 class Api::V1::MoviesController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     movies = Movie.by_title(params[:title])
